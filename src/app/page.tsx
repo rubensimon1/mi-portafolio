@@ -1,6 +1,7 @@
 import { PROJECTS } from '@/constants/projects';
 import { ProjectCard } from '@/components/ProjectCard';
-import { TechStack } from '@/components/TechStack'; 
+import { TechStack } from '@/components/TechStack';
+import { ContactModal } from '@/components/ContactModal'; 
 
 export default function PortfolioPage() {
   return (
@@ -24,16 +25,22 @@ export default function PortfolioPage() {
         </h1>
         
         <p className="mt-8 max-w-3xl text-xl text-zinc-400 leading-relaxed font-light">
-          Ingeniero de Software Senior especializado en diseñar y construir sistemas distribuidos de alta disponibilidad y experiencias web excepcionales. Enfocado en código limpio, performance y escalabilidad.
+          Técnico Superior en DAM con una base sólida de 4 años en el sector informático (SMR). 
+          Especializado en el desarrollo de aplicaciones y gestión de sistemas, forjado en la metodología de alto rendimiento de <span className="text-white font-medium">42 Madrid</span>. 
+          Actualmente aportando valor en las prácticas de <span className="text-blue-400 font-medium">Gestorum</span>.
         </p>
         
         <div className="mt-12 flex flex-wrap gap-5">
-          <button className="group rounded-xl bg-white px-6 py-3 text-base font-bold text-black transition-all hover:bg-zinc-200 hover:shadow-lg hover:shadow-white/10">
+          <a 
+            href="/cv.pdf"
+            download="CV_Ruben.pdf"
+            className="group rounded-xl bg-white px-6 py-3 text-base font-bold text-black transition-all hover:bg-zinc-200 hover:shadow-lg hover:shadow-white/10"
+          >
             Descargar Currículum
-          </button>
-          <button className="group rounded-xl border border-zinc-700 px-6 py-3 text-base font-bold text-white transition-colors hover:border-zinc-500 hover:bg-zinc-900">
-            Contáctame <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
-          </button>
+          </a>
+          
+          {/* NUEVO COMPONENTE INTERACTIVO */}
+          <ContactModal />
         </div>
       </section>
 
@@ -60,7 +67,7 @@ export default function PortfolioPage() {
       {/* --- FOOTER (Minimalista) --- */}
       <footer className="relative z-10 border-t border-zinc-800 bg-black/50 py-12 text-center">
         <p className="text-sm text-zinc-500 font-light">
-          © {new Date().getFullYear()} • Tu Nombre • Desarrollado con Next.js y rigor técnico.
+          © {new Date().getFullYear()} • Rubén • Desarrollado con Next.js y rigor técnico.
         </p>
       </footer>
     </main>
