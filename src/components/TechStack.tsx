@@ -1,21 +1,25 @@
+"use client";
+
 import React from 'react';
-import { TECH_STACK } from '@/constants/skills';
+import { useLanguage } from '@/context/LanguageContext';
 
 export const TechStack: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
-    <section className="relative z-10 mx-auto max-w-5xl px-6 py-16">
+    <section id="stack" className="relative z-10 mx-auto max-w-5xl px-6 py-16">
       {/* Separador Visual */}
       <div className="mb-10 flex items-center gap-4">
         <div className="h-px flex-1 bg-zinc-800" />
         <h2 className="text-2xl font-bold tracking-tight text-white md:text-3xl">
-          Stack Tecnológico
+          {t.techStack.title}
         </h2>
         <div className="h-px flex-1 bg-zinc-800" />
       </div>
 
       {/* Grid de Categorías */}
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-        {TECH_STACK.map((category) => (
+        {t.techStack.categories.map((category) => (
           <div 
             key={category.title} 
             className="rounded-2xl border border-zinc-800/50 bg-zinc-900/30 p-6 backdrop-blur-sm"

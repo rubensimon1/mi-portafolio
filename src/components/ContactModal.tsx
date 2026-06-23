@@ -4,7 +4,10 @@ import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom'; // Importamos la herramienta de portales
 import { SOCIAL_LINKS } from '@/constants/socials';
 
+import { useLanguage } from '@/context/LanguageContext';
+
 export const ContactModal: React.FC = () => {
+  const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -35,7 +38,7 @@ export const ContactModal: React.FC = () => {
         onClick={() => setIsOpen(true)}
         className="group rounded-xl border border-zinc-700 px-6 py-3 text-base font-bold text-white transition-colors hover:border-zinc-500 hover:bg-zinc-900"
       >
-        Contáctame <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+        {t.contact.modalButton} <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
       </button>
 
       {/* 2. EL MODAL (Se teletransporta al final del <body> usando createPortal) */}
@@ -56,9 +59,9 @@ export const ContactModal: React.FC = () => {
               ✕
             </button>
             
-            <h3 className="mb-2 text-2xl font-bold text-white">Hablemos</h3>
+            <h3 className="mb-2 text-2xl font-bold text-white">{t.contact.modalTitle}</h3>
             <p className="mb-8 text-sm text-zinc-400 font-light">
-              Estoy disponible para nuevos proyectos y oportunidades. Elige la plataforma que prefieras:
+              {t.contact.modalDesc}
             </p>
 
             <div className="flex flex-col gap-3">

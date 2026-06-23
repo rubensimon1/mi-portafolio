@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Providers } from "@/components/Providers";
 
 // Optimizamos la carga de la fuente a nivel de servidor
 const inter = Inter({ subsets: ["latin"], display: 'swap' });
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
   title: "Rubén Simón | Software Engineer",
   description: "Portafolio profesional de Rubén. Ingeniero de Software especializado en desarrollo web y arquitectura de sistemas.",
   openGraph: {
-    title: "Tu Nombre | Software Engineer",
+    title: "Rubén Simón | Software Engineer",
     description: "Ingeniero de Software especializado en desarrollo web y arquitectura de sistemas.",
     type: "website",
   },
@@ -24,7 +25,9 @@ export default function RootLayout({
   return (
     <html lang="es" className="scroll-smooth">
       <body className={`${inter.className} bg-black text-zinc-200 antialiased`}>
-        {children}
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );
