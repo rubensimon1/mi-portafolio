@@ -52,25 +52,77 @@ export const Navbar: React.FC = () => {
     { name: t.nav.contact, href: "contacto" },
   ];
 
+  const [isOpenMobile, setIsOpenMobile] = useState(false);
+
+  // Cerrar el menú si hacemos scroll y se oculta la barra
+  useEffect(() => {
+    if (!isVisible) setIsOpenMobile(false);
+  }, [isVisible]);
+
   return (
     <nav 
       className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-in-out ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10 pointer-events-none"
       }`}
     >
-      <ul className="flex items-center gap-1 md:gap-2 rounded-full border border-zinc-800 bg-zinc-900/80 px-4 py-2 backdrop-blur-md shadow-lg overflow-x-auto max-w-[90vw] scrollbar-hide">
+      {/* --- DESKTOP MENU --- */}
+      <ul className="hidden md:flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-2xl shadow-2xl">
         {navLinks.map((link) => (
           <li key={link.href}>
             <a
               href={`#${link.href}`}
               onClick={(e) => handleScrollClick(e, link.href)}
-              className="px-3 py-1.5 text-xs md:text-sm font-semibold text-zinc-400 transition-colors hover:text-white whitespace-nowrap"
+              className="px-3 py-1.5 text-sm font-semibold text-zinc-400 transition-colors hover:text-white whitespace-nowrap"
             >
               {link.name}
             </a>
           </li>
         ))}
       </ul>
+
+      {/* --- MOBILE MENU --- */}
+      <div className="md:hidden relative flex flex-col items-center">
+        <button
+          onClick={() => setIsOpenMobile(!isOpenMobile)}
+          className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 backdrop-blur-2xl shadow-2xl text-white font-semibold text-sm transition-colors hover:border-white/20"
+        >
+          <span>Menu</span>
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            fill="none" 
+            viewBox="0 0 24 24" 
+            strokeWidth={2} 
+            stroke="currentColor" 
+            className={`w-4 h-4 transition-transform duration-300 ${isOpenMobile ? "rotate-180" : ""}`}
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+        </button>
+
+        {/* Mobile Dropdown */}
+        <div 
+          className={`absolute top-full mt-3 w-[200px] rounded-2xl border border-white/10 bg-white/5 backdrop-blur-2xl shadow-2xl transition-all duration-300 origin-top ${
+            isOpenMobile ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
+          }`}
+        >
+          <ul className="flex flex-col p-2">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={`#${link.href}`}
+                  onClick={(e) => {
+                    setIsOpenMobile(false);
+                    handleScrollClick(e, link.href);
+                  }}
+                  className="block w-full rounded-lg px-4 py-3 text-center text-sm font-semibold text-zinc-300 transition-colors hover:bg-zinc-800 hover:text-white"
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </nav>
   );
 };

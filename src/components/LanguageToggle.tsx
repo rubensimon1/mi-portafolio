@@ -30,7 +30,7 @@ export const LanguageToggle: React.FC = () => {
 
   return (
     <div 
-      className={`fixed top-6 right-6 z-50 flex items-center rounded-full border border-zinc-800 bg-zinc-900/80 p-1 backdrop-blur-md shadow-lg transition-all duration-500 ease-in-out ${
+      className={`fixed top-6 right-6 z-50 flex items-center rounded-full border border-white/10 bg-white/5 p-1 backdrop-blur-2xl shadow-2xl transition-all duration-500 ease-in-out ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10 pointer-events-none"
       }`}
     >

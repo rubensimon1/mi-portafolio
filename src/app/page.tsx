@@ -8,6 +8,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { LanguageToggle } from '@/components/LanguageToggle';
 import { ScrollToTop } from '@/components/ScrollToTop';
 import { Navbar } from '@/components/Navbar';
+import { CodeBackground } from '@/components/CodeBackground';
 
 export default function PortfolioPage() {
   const { t } = useLanguage();
@@ -18,9 +19,8 @@ export default function PortfolioPage() {
       <LanguageToggle />
       <ScrollToTop />
       
-      {/* --- EFECTOS DE FONDO AMBIENTAL --- */}
-      <div className="pointer-events-none absolute -top-40 -left-40 h-[600px] w-[600px] rounded-full bg-blue-600 opacity-15 blur-[128px]" aria-hidden="true" />
-      <div className="pointer-events-none absolute top-[60vh] -right-40 h-[600px] w-[600px] rounded-full bg-cyan-500 opacity-10 blur-[128px]" aria-hidden="true" />
+      {/* --- FONDO ANIMADO --- */}
+      <CodeBackground />
 
       {/* --- SECCIÓN HERO --- */}
       <section id="about" className="relative z-10 mx-auto max-w-5xl px-6 pt-32 pb-24 md:pt-40">
