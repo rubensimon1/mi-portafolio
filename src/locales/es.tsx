@@ -62,6 +62,22 @@ export const es = {
         link: "https://github.com/rubensimon1/EcoLens-KMP",
         github: "https://github.com/rubensimon1/EcoLens-KMP",
         buttonText: "Visitar Repositorio"
+      },
+      {
+        title: "Vintage Lab | Marketplace Pro",
+        description: "Plataforma Next-Gen para resell de streetwear y artículos de lujo. Altísimo rendimiento con Next.js 16 (App Router), backend en Supabase, pagos mediante Stripe y utilidades de facturación.",
+        tags: ["Next.js 16", "Supabase", "Stripe", "TailwindCSS"],
+        link: "https://github.com/rubensimon1/vintage-lab",
+        github: "https://github.com/rubensimon1/vintage-lab",
+        buttonText: "Visitar Repositorio"
+      },
+      {
+        title: "Dev Academy (LMS)",
+        description: "Plataforma moderna de aprendizaje con arquitectura de servidor. Incluye base de datos PostgreSQL (Neon), NextAuth para autenticación robusta y un foro de comunidad integrado.",
+        tags: ["Next.js 16", "Prisma", "PostgreSQL", "NextAuth"],
+        link: "https://github.com/rubensimon1/dev-academy",
+        github: "https://github.com/rubensimon1/dev-academy",
+        buttonText: "Visitar Repositorio"
       }
     ],
     other: [
